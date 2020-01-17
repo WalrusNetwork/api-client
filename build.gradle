@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath("com.apollographql.apollo:apollo-gradle-plugin:1.2.3")
+    }
+}
+
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+}
+
+apply plugin: 'com.apollographql.android'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation("com.apollographql.apollo:apollo-runtime:1.2.3")
+    compileOnly("org.jetbrains:annotations:13.0")
+    testCompileOnly("org.jetbrains:annotations:13.0")
+}
+
+apollo {
+    generateKotlinModels = false
+}
