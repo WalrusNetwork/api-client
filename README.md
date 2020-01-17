@@ -2,7 +2,7 @@
 This utilises the Apollo Android GraphQL library to automatically generate GraphQL files.
 
 ## Building
-`./gradlew jar`
+Just run `./gradlew jar` and pull the jar out of `build/`.
 
 ## Updating
 1. Download a new schema.json. You can do that using the apollo cli by following the instructions [here](https://github.com/apollographql/apollo-android#downloading-a-schemajson-file).
