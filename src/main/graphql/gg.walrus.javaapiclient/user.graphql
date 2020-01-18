@@ -1,5 +1,7 @@
-mutation LoginWeb($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-        token
+mutation UserJoin($uuid: String!, $username: String!) {
+    userJoin(uuid: $uuid, username: $username) {
+        flair
+        tag
+        permissions
     }
 }
