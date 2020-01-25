@@ -9,8 +9,8 @@ buildscript {
 }
 
 plugins {
-    // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven-publish'
 }
 
 apply plugin: 'com.apollographql.android'
@@ -28,3 +28,31 @@ dependencies {
 apollo {
     generateKotlinModels = false
 }
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+publishing {
+    publications {
+        library(MavenPublication) {
+            from components.java
+            groupId = "gg.walrus"
+            artifactId = "javaapiclient"
+            version = "1.0.0-SNAPSHOT"
+        }
+    }
+
+    repositories {
+        maven {
+            url = "https://maven.walrus.gg/repository/walrus-private/"
+            credentials(PasswordCredentials) {
+                username = 'walrus'
+                password = System.getenv("NEXUS_DEPLOY_KEY")
+            }
+        }
+    }
+}
+
