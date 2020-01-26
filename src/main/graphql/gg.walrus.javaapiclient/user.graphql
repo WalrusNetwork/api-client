@@ -5,3 +5,21 @@ mutation UserJoin($uuid: String!, $username: String!) {
         permissions
     }
 }
+
+query UserStats($username: String!) {
+    users(username: $username) {
+        ares {
+            kills
+            deaths
+        }
+    }
+}
+
+mutation UserUpdateAresStats($username: String!, $stats: AresStatsInput!) {
+    updateAresStats(username: $username, stats: $stats) {
+        ares {
+            kills
+            deaths
+        }
+    }
+}
