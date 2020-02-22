@@ -11,6 +11,11 @@ query UserStats($username: String!) {
         ares {
             kills
             deaths
+            wools
+            monuments
+            cores
+            hills
+            flags
         }
     }
 }
@@ -20,6 +25,11 @@ mutation UserUpdateAresStats($username: String!, $stats: AresStatsInput!) {
         ares {
             kills
             deaths
+            wools
+            monuments
+            cores
+            hills
+            flags
         }
     }
 }
